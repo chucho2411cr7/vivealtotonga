@@ -1,0 +1,133 @@
+<!--
+  Generated template for the AltotongaPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar color="danger">
+    <ion-title>Altotonga</ion-title>
+  </ion-navbar>
+
+</ion-header>
+<ion-menu [content]="content">
+    <ion-header>
+      <ion-toolbar color="danger">
+        <ion-title>Menu</ion-title>
+      </ion-toolbar >
+    </ion-header>
+    <ion-content class="bd-color">
+      <ion-list class="bd-color">
+        <button class="bd-color" ion-item (click)="inicio()">
+          Inicio
+        </button>
+        <button class="bd-color" ion-item (click)="sobre()">
+          ¿Quienes somos?
+        </button>
+        <button class="bd-color" ion-item (click)="openPage(eventsPage)">
+          Bienvenido!
+        </button>
+        <button class="bd-color" ion-item (click)="closeMenu()">
+          Close Menu
+        </button>
+      </ion-list>
+    </ion-content>
+  </ion-menu>
+  
+
+
+<ion-content padding class="bd-color">
+
+    <ion-slides pager="true" effect="cube">
+
+        <ion-slide style="background-color:  rgb(255, 230, 0)">
+          <h2>Parroquia Santa María Magdalena</h2>
+          <img src="assets/imgs/altotonga.jpg" >
+        </ion-slide>
+      
+        <ion-slide style="background-color: rgb(255, 230, 0)">
+          <h2>Altotonga</h2>
+          <img src="assets/imgs/ALTOTONGA4.jpg" >
+        </ion-slide>
+      
+        <ion-slide style="background-color:  rgb(255, 230, 0)">
+          <h2>Entrada Altotonga</h2>
+          <img src="assets/imgs/altotonga5.jpg" >
+        </ion-slide>
+      
+        <ion-slide style="background-color: rgb(255, 230, 0)">
+            <h2>Cascada</h2>
+            <img src="assets/imgs/rio15.jpg" >
+          </ion-slide>
+
+          <ion-slide style="background-color:  rgb(255, 230, 0)">
+              <h2>Pancho Poza</h2>
+              <img src="assets/imgs/rio222.jpg" >
+            </ion-slide>
+
+      </ion-slides>
+
+      <ion-card color="mail">
+        <ion-card-header text-center >
+          <b>Altotonga, Veracruz.</b>
+        </ion-card-header>
+        <ion-card-content>
+          El municipio de Altotonga se encuentra en la parte central del estado de Veracruz (Ver). 
+          Su distancia a la capital del estado es de 80 kilómetros. Debido a su posición geográfica, 
+          se encuentra situado entre las coordenadas 19° 46' latitud norte y entre 97° 15' logitud 
+          oeste. La superficie territorial de Altotonga es de 375.08 kilómetros cuadrados. 
+          Debido a la variedad de elevaciones que se pueden encontrar en dicho lugar, se ubica a 
+          una altura promedio de 1,880 metros sobre el nivel del mar. El INEGI llevó a cabo el conteo
+           de población y vivienda durante el 2010 en todos los estados y municipios del país e 
+           informó que de acuerdo a los resultados obtenidos, 
+          el municipio de Altotonga está formado por una población total de 60,400.
+        </ion-card-content>
+      </ion-card>
+
+      <!--lista-->
+      <ion-card color="primary">
+        <ion-card-header>
+          Información 
+        </ion-card-header>
+      
+        <ion-list>
+          <button ion-item>
+            <ion-icon name="cloudy" item-start></ion-icon>
+            <b>Clima</b><br>
+            Varios tipos de clima el semicálido húmedo
+            con lluvias, temperatura anual media entre los 12 y los 24 °C.
+          </button>
+      
+          <button ion-item>
+            <ion-icon name="man" item-start></ion-icon>
+            <b>Demografía</b><br>
+            60, 396 Habitantes
+          </button>
+      
+          <button ion-item>
+            <ion-icon name="home" item-start></ion-icon>
+            <b>Localidades</b><br>
+            94 Localidades
+          </button>
+      
+          <button ion-item>
+            <ion-icon name="browsers" item-start></ion-icon>
+            <b>Superficie</b><br>
+            328.66 km²
+          </button>
+      
+          <button ion-item>
+            <ion-icon name="compass" item-start></ion-icon>
+            <b>Localización</b><br>
+            Entre los paralelos 19° 38’ y 19°54 
+          </button>
+      
+                
+        </ion-list>
+      </ion-card>
+     <!--lista-->
+
+      
+
+</ion-content>

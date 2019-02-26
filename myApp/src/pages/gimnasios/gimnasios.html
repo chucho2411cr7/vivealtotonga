@@ -1,0 +1,149 @@
+<!--
+  Generated template for the GimnasiosPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar color="danger">
+    <ion-title>Gimnasios</ion-title>
+  </ion-navbar>
+
+</ion-header>
+<ion-menu [content]="content">
+    <ion-header>
+      <ion-toolbar color="danger">
+        <ion-title>Menu</ion-title>
+      </ion-toolbar >
+    </ion-header>
+    <ion-content class="bd-color">
+      <ion-list class="bd-color">
+        <button class="bd-color" ion-item (click)="inicio()">
+          Inicio
+        </button>
+        <button class="bd-color" ion-item (click)="sobre()">
+          ¿Quienes somos?
+        </button>
+        <button class="bd-color" ion-item (click)="openPage(eventsPage)">
+          Bienvenido!
+        </button>
+        <button class="bd-color" ion-item (click)="closeMenu()">
+          Close Menu
+        </button>
+      </ion-list>
+    </ion-content>
+  </ion-menu>
+  
+
+
+<ion-content padding class="bd-color">
+   <!--gim1-->
+<ion-content padding class="bd-color">
+  <ion-card color="mail">
+    <img src="assets/imgs/gim1.jpg"/>
+    <ion-card-content>
+      <ion-card-title text-right>
+        Gimnasio "Sport Billy"
+        </ion-card-title>
+      
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card color="mail">
+        <ion-card-content>
+          <ion-icon name="alert" color="icon"><b>Información</b></ion-icon><br>
+          Sport Billy se encuentra a unas cuadras del centro de Altotonga, cuenta con una gran variedad de aparatos musculares.<br>
+          <ion-icon name="compass" color="icon"><b> Ubicación:</b></ion-icon><br> Altotonga<br>
+
+          <ion-icon name="pricetag" color="icon"><b>Dirección:</b> </ion-icon>Dr. Marin No.28, 93700 Altotonga, Ver. <br>
+
+          <ion-icon name="call" color="icon"><b>Teléfono:</b></ion-icon> 00 000 000 00 00<br>
+
+          <ion-icon name="clock" color="icon"><b>Horarios:</b></ion-icon> viernes 07:00–19:00<br>
+          sábado 07:00–19:00<br>
+          domingo 07:00–19:00<br>
+          lunes 07:00–19:00<br>
+          martes 07:00–19:00<br>
+          miércoles 07:00–19:00<br>
+          jueves 07:00–19:00<br>
+          
+          6:00pm - 11:00pm<br>
+
+          <ion-icon name="chatboxes" color="icon"><b>Email:</b></ion-icon><br>
+      
+    </ion-card-content>
+  </ion-card>
+
+  <!--gim2-->
+
+<ion-card color="mail">
+  <img src="assets/imgs/gim2.png"/>
+  <ion-card-content>
+    <ion-card-title text-right>
+     Gimnasio "Atenca Gym"
+      </ion-card-title>
+    
+  </ion-card-content>
+</ion-card>
+
+<ion-card color="mail">
+      <ion-card-content>
+        <ion-icon name="alert" color="icon"><b>Información</b></ion-icon><br>
+        Atenca Gym se enceuntra en la zona centro de Altotonga, cuenta con instructores y una gran variedad de equipo.<br>
+        <ion-icon name="compass" color="icon"><b> Ubicación:</b></ion-icon><br> Altotonga<br>
+
+        <ion-icon name="pricetag" color="icon"><b>Dirección:</b> </ion-icon>La palma, 93700 Altotonga, Ver.<br>
+
+        <ion-icon name="call" color="icon"><b>Teléfono:</b></ion-icon>  01 226 316 6952
+        <br>
+
+        <ion-icon name="clock" color="icon"><b>Horarios:</b></ion-icon> viernes 07:00–19:00<br>
+        sábado 07:00–19:00<br>
+        domingo 07:00–19:00<br>
+        lunes 07:00–19:00<br>
+        martes 07:00–19:00<br>
+        miércoles 07:00–19:00<br>
+        jueves 07:00–19:00<br>
+
+        <ion-icon name="chatboxes" color="icon"><b>Email:</b></ion-icon><br>
+    
+  </ion-card-content>
+</ion-card>
+
+<!--gim3-->
+
+<ion-card color="mail">
+  <img src="assets/imgs/gim3.jpg"/>
+  <ion-card-content>
+    <ion-card-title text-right>
+      Gimnasio "Toros Salvajes"
+      </ion-card-title>
+    
+  </ion-card-content>
+</ion-card>
+
+<ion-card color="mail">
+      <ion-card-content>
+        <ion-icon name="alert" color="icon"><b>Información</b></ion-icon><br>
+        Toros Salvajes se enceuntra cerca del lugar conocido como las escalinatas, cuenta con instructores certificados, nutriologo, fisioterapeuta y una gran variedad de equipo.<br>
+        <ion-icon name="compass" color="icon"><b> Ubicación:</b></ion-icon><br> Altotonga<br>
+
+        <ion-icon name="pricetag" color="icon"><b>Dirección:</b> </ion-icon> Rafael Vera de Cordoba, Centro, Altotonga, Ver. <br>
+
+        <ion-icon name="call" color="icon"><b>Teléfono:</b></ion-icon>01 226 553 5971<br>
+
+        <ion-icon name="clock" color="icon"><b>Horarios:</b></ion-icon> viernes 08:00–10:00, 17:00–21:00<br>
+        sábado 08:00–10:00<br>
+        domingo Cerrado<br>
+        lunes 08:00–10:00, 17:00–21:00<br>
+        martes 08:00–10:00, 17:00–21:00<br>
+        miércoles 08:00–10:00, 17:00–21:00<br>
+        jueves 08:00–10:00, 17:00–21:00<br>
+        7:00pm - 12:00pm<br>
+
+        <ion-icon name="chatboxes" color="icon"><b>Email:</b></ion-icon><br>
+    
+  </ion-card-content>
+</ion-card>
+</ion-content>

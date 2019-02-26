@@ -1,0 +1,113 @@
+<ion-header>
+  <ion-navbar color="danger">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title text-center>Vive Altotonga</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-menu [content]="content">
+  <ion-header>
+    <ion-toolbar color="danger">
+      <ion-title>Menu</ion-title>
+    </ion-toolbar >
+  </ion-header>
+  <ion-content class="bd-color">
+    <ion-list class="bd-color">
+      <button class="bd-color" ion-item (click)="inicio()">
+        Inicio
+      </button>
+      <button class="bd-color" ion-item (click)="sobre()">
+        ¿Quienes somos?
+      </button>
+      <button class="bd-color" ion-item (click)="openPage(eventsPage)">
+        Bienvenido!
+      </button>
+      <button class="bd-color" ion-item (click)="closeMenu()">
+        Close Menu
+      </button>
+    </ion-list>
+  </ion-content>
+</ion-menu>
+
+<ion-nav id="nav" #content [root]="rootPage"></ion-nav>
+
+<ion-content padding class="bd-color">   <!--bg-image-->
+
+    <ion-card (click)="altotonga()">
+        <ion-card-content>
+            <img src="assets/imgs/vive.png"/>
+        </ion-card-content>
+        <h1 text-center>
+          <a> Vive Altotonga</a>
+          <ion-icon name='ios-navigate' color="primary"> </ion-icon>
+        </h1>
+      </ion-card>
+
+  <ion-grid >
+    <ion-row>
+      <ion-col>
+          <ion-card (click)="publicidad()">
+              <ion-card-content>
+                  <img src="assets/imgs/publi.jpg" />
+                  <hr>
+                  <p text-center>
+                    <b>
+                      <a>Publicidad</a>
+                      <ion-icon name='ios-navigate' color="primary"> </ion-icon>
+                    </b>
+                  </p>
+              </ion-card-content>
+            </ion-card>
+      </ion-col>
+      <ion-col>
+          <ion-card (click)="turismo()">
+              <ion-card-content>
+                  <img src="assets/imgs/turismo.jpg"/>
+                  <hr>
+                  <p text-center>
+                    <b>
+                      <a>Turismo</a>
+                      <ion-icon name='ios-navigate' color="primary"> </ion-icon>
+                    </b>
+                  </p>
+              </ion-card-content>
+            </ion-card>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+        <ion-col>
+            <ion-card (click)="historia()">
+                <ion-card-content>
+                    <img src="assets/imgs/histo.png"/>
+                    <hr>
+                    <p text-center>
+                      <b>
+                        <a>Historia</a>
+                        <ion-icon name='ios-navigate' color="primary"> </ion-icon>
+                      </b>
+                    </p>
+                </ion-card-content>
+              </ion-card>
+        </ion-col> 
+      <ion-col>
+          <ion-card (click)="gastronomia()">
+              <ion-card-content>
+                  <img src="assets/imgs/gastro.png"/>
+                  <hr>
+                  <p text-center>
+                    <b>
+                      <a>Gastronomía</a>
+                      <ion-icon name='ios-navigate' color="primary"> </ion-icon>
+                    </b>
+                  </p>
+              </ion-card-content>
+            </ion-card>
+      </ion-col>
+         
+    </ion-row>
+    
+  </ion-grid>  
+
+</ion-content>

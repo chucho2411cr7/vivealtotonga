@@ -1,0 +1,165 @@
+<ion-header>
+    <ion-navbar color="danger">
+        <button ion-button menuToggle>
+          <ion-icon name="menu"></ion-icon>
+        </button>
+        <ion-title text-center>Top Software</ion-title>
+      </ion-navbar>
+</ion-header>
+<ion-menu [content]="content">
+    <ion-header>
+      <ion-toolbar color="danger">
+        <ion-title>Menu</ion-title>
+      </ion-toolbar >
+    </ion-header>
+    <ion-content class="bd-color">
+      <ion-list class="bd-color">
+        <button class="bd-color" ion-item (click)="inicio()">
+          Inicio
+        </button>
+        <button class="bd-color" ion-item (click)="sobre()">
+          ¿Quienes somos?
+        </button>
+        <button class="bd-color" ion-item (click)="openPage(eventsPage)">
+          Bienvenido!
+        </button>
+        <button class="bd-color" ion-item (click)="closeMenu()">
+          Close Menu
+        </button>
+      </ion-list>
+    </ion-content>
+  </ion-menu>
+  <ion-nav id="nav" #content [root]="rootPage"></ion-nav>
+
+<ion-content class="bd-color">
+<div><ion-card >
+    <h2 text-center><b>Empresa</b></h2>
+  <ion-card>
+    <img src="assets/imgs/top1.png">
+  </ion-card>
+</ion-card></div>  
+  <br>
+  
+    <ion-card>
+      <ion-list>
+        <ion-card-header text-uppercase text-center color="primary">
+          <h2><b>Desarrollador</b></h2>
+        </ion-card-header>
+        <ion-item>
+          
+            <img src="assets/imgs/bosque.png" class="size12">
+          
+          <br>
+          <h1><b>Jesús García Ventura</b></h1>
+          <br>
+        </ion-item>
+        <ion-grid>
+          <ion-row>
+            <ion-col col-4>
+              <div>
+                <a href="tel:2265532854" ion-button large color="call">
+                  <ion-icon name="md-call"></ion-icon>
+                </a>
+              </div>
+            </ion-col>
+            <ion-col col-4>
+              <div>
+                <a href="https://www.facebook.com/jesus.garciaven" ion-button large color="facebook">
+                  <ion-icon name="logo-facebook"></ion-icon>
+                </a>
+              </div>
+            </ion-col>
+            <ion-col col-4>
+              <div>
+                <a href="peluche24cr7@hotmail.com" ion-button  large color="mail">
+                  <ion-icon name="md-mail"></ion-icon>
+                </a>
+              </div>
+            </ion-col>
+           
+          </ion-row>
+        </ion-grid>
+        <br>
+      </ion-list>
+    </ion-card>
+    <ion-card>
+      <ion-list>
+        <ion-card-header text-uppercase text-center color="primary">
+          <h2><b>Diseñadores</b></h2>
+        </ion-card-header>
+        <ion-item>
+          
+            <img src="assets/imgs/bosque.png" class="size12">
+          
+          <br>
+          <h1><b>Sergio Hernández Gonzalez</b></h1>
+          <br>
+        </ion-item>
+        <ion-grid>
+          <ion-row>
+            <ion-col col-4>
+              <div>
+                <a href="tel:2321403892" ion-button large color="call">
+                  <ion-icon name="md-call"></ion-icon>
+                </a>
+              </div>
+            </ion-col>
+            <ion-col col-4>
+              <div>
+                <a href="https://www.facebook.com/profile.php?id=100004375902898" ion-button large color="facebook">
+                  <ion-icon name="logo-facebook"></ion-icon>
+                </a>
+              </div>
+            </ion-col>
+            <ion-col col-4>
+              <div>
+                <a href="mailto:132040989@utgz.edu.mx" ion-button large color="mail">
+                  <ion-icon name="md-mail"></ion-icon>
+                </a>
+              </div>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-list>
+    </ion-card>
+
+    <ion-card>
+      <ion-list>
+        
+        <ion-item>
+          
+            <img src="assets/imgs/bosque.png" class="size12">
+         
+          <br>
+          <h1><b>Juan Pablo Abad Arcos</b></h1>
+          <br>
+        </ion-item>
+        <ion-grid>
+          <ion-row>
+            <ion-col col-4>
+              <div>
+                <a href="tel:2311522061" ion-button large color="call">
+                  <ion-icon name="md-call"></ion-icon>
+                </a>
+              </div>
+            </ion-col>
+            <ion-col col-4>
+              <div>
+                <a href="https://www.facebook.com/juanpablo.abadarcos" ion-button large color="facebook">
+                  <ion-icon name="logo-facebook"></ion-icon>
+                </a>
+              </div>
+            </ion-col>
+            <ion-col col-4>
+              <div>
+                <a href="mailto:132011223@utgz.edu.mx" ion-button large color="mail">
+                  <ion-icon name="md-mail"></ion-icon>
+                </a>
+              </div>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-list>
+    </ion-card>
+
+</ion-content>

@@ -1,0 +1,56 @@
+<!--
+  Generated template for the PublicidadPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar color="danger">
+    <ion-title text-center>Publicidad</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding class="bd-color">
+  <ion-card text-center color="danger">
+    <img src="assets/imgs/megafono.jpg" height="170px"/>
+    <ion-card-header >
+      Publicidad Lista
+    </ion-card-header>
+  
+    <ion-list>
+      <button ion-item (click)="hoteleria()">
+        <ion-icon name="calculator" item-start text-center color="hot"></ion-icon>
+        Hoteleria
+      </button>
+  
+      <button ion-item (click)="restaurantes()">
+        <ion-icon name="pizza" item-start text-center color="mail"></ion-icon>
+        Restaurantes
+      </button>
+  
+      <button ion-item (click)="gimnasios()">
+        <ion-icon name="heart" item-start text-center color="danger"></ion-icon>
+        Gimnasios
+      </button>
+  
+      <button ion-item (click)="sitios()">
+        <ion-icon name="pin" item-start text-center color="primary"></ion-icon>
+         Sitios recreativos
+      </button>
+  
+      <button ion-item (click)="antros()">
+        <ion-icon name="wine" item-start text-center color="vino"></ion-icon>
+        Antros
+      </button>
+  
+      <button ion-item (click)="tiendas()">
+        <ion-icon name="cart" item-start></ion-icon>
+        Tiendas comerciales
+      </button>
+  
+    </ion-list>
+  </ion-card>
+</ion-content>
