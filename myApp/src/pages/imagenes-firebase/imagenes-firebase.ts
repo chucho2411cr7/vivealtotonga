@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
-import { Observable } from 'rxjs-compat';
+
 import { ImagenFirebaseProvider } from '../../providers/imagen-firebase/imagen-firebase';
 import { CamaraProvider } from '../../providers/camara/camara';
+import { Observable } from 'rxjs/observable';
 
 @IonicPage()
 @Component({
@@ -17,7 +18,7 @@ export class ImagenesFirebasePage {
     public imagenFirebaseProvider: ImagenFirebaseProvider,
     public camaraProvider : CamaraProvider) {
 
-      this.obtenerImagenes();
+      this.mostrarImagenes();
       
   }
 
@@ -25,7 +26,7 @@ export class ImagenesFirebasePage {
     this.navCtrl.push('ImagenFormularioPage');
   }
 
-  obtenerImagenes(){
+  mostrarImagenes(){
     this.imagenFirebaseProvider.obtenerImagenes();
     this.items = this.imagenFirebaseProvider.publicaciones;
   }

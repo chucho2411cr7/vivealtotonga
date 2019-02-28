@@ -12,8 +12,12 @@
   <button class="bd-color" ion-item (click)="mostrarFormulario()">
     Cargar Imagen
   </button>
+  <br><br>
+  <button class="bd-color" ion-item (click)="mostrarImagenes()">
+    Mostrar imágenes
+  </button>
 
-  <ion-card *ngFor="let item of (items | async)?.slice().reverse()">
+  <ion-card *ngFor="let item of items | async">
   
       <img cache style="width: 250px; height: 200px;" [src]="item.img">
   

@@ -55,7 +55,9 @@
       "id": "cordova-plugin-telerik-imagepicker"
     },
     "is_top_level": true,
-    "variables": {}
+    "variables": {
+      "PHOTO_LIBRARY_USAGE_DESCRIPTION": "your usage message"
+    }
   },
   "cordova-plugin-camera": {
     "source": {

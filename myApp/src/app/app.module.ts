@@ -29,8 +29,8 @@ import { CamaraProvider } from '../providers/camara/camara';
 import { ImagenesFirebasePage } from '../pages/imagenes-firebase/imagenes-firebase';
 
 
-import { Camera, CameraOptions } from '@ionic-native/camera/ngx';
-import { ImagePicker } from '@ionic-native/image-picker/ngx';
+import { Camera, CameraOptions } from '@ionic-native/camera';
+import { ImagePicker } from '@ionic-native/image-picker';
 import { AngularFireModule } from '@angular/fire';
 import { AngularFireDatabaseModule, AngularFireDatabase } from '@angular/fire/database';
 import { AngularFireAuthModule } from '@angular/fire/auth';

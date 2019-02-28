@@ -1,13 +1,28 @@
 -- Merging decision tree log ---
+provider#org.apache.cordova.camera.FileProvider
+INJECTED from C:\Users\Serch\Desktop\Altotonga\vivealtotonga\myApp\platforms\android\app\src\main\AndroidManifest.xml:12:9-14:20
+	android:grantUriPermissions
+		ADDED from C:\Users\Serch\Desktop\Altotonga\vivealtotonga\myApp\platforms\android\app\src\main\AndroidManifest.xml:12:92-126
+	android:authorities
+		INJECTED from C:\Users\Serch\Desktop\Altotonga\vivealtotonga\myApp\platforms\android\app\src\main\AndroidManifest.xml
+		ADDED from C:\Users\Serch\Desktop\Altotonga\vivealtotonga\myApp\platforms\android\app\src\main\AndroidManifest.xml:12:19-66
+	android:exported
+		ADDED from C:\Users\Serch\Desktop\Altotonga\vivealtotonga\myApp\platforms\android\app\src\main\AndroidManifest.xml:12:67-91
+	android:name
+		ADDED from C:\Users\Serch\Desktop\Altotonga\vivealtotonga\myApp\platforms\android\app\src\main\AndroidManifest.xml:12:127-180
 manifest
-ADDED from C:\Users\Serch\Desktop\Altotonga\vivealtotonga\myApp\platforms\android\app\src\main\AndroidManifest.xml:2:1-13:12
-INJECTED from C:\Users\Serch\Desktop\Altotonga\vivealtotonga\myApp\platforms\android\app\src\main\AndroidManifest.xml:2:1-13:12
-INJECTED from C:\Users\Serch\Desktop\Altotonga\vivealtotonga\myApp\platforms\android\app\src\main\AndroidManifest.xml:2:1-13:12
-INJECTED from C:\Users\Serch\Desktop\Altotonga\vivealtotonga\myApp\platforms\android\app\src\main\AndroidManifest.xml:2:1-13:12
+ADDED from C:\Users\Serch\Desktop\Altotonga\vivealtotonga\myApp\platforms\android\app\src\main\AndroidManifest.xml:2:1-18:12
+INJECTED from C:\Users\Serch\Desktop\Altotonga\vivealtotonga\myApp\platforms\android\app\src\main\AndroidManifest.xml:2:1-18:12
+INJECTED from C:\Users\Serch\Desktop\Altotonga\vivealtotonga\myApp\platforms\android\app\src\main\AndroidManifest.xml:2:1-18:12
+INJECTED from C:\Users\Serch\Desktop\Altotonga\vivealtotonga\myApp\platforms\android\app\src\main\AndroidManifest.xml:2:1-18:12
+MERGED from [com.android.support:appcompat-v7:23.4.0] C:\Users\Serch\.gradle\caches\transforms-1\files-1.1\appcompat-v7-23.4.0.aar\535af3a76f5a52a661aa3e07003aad3c\AndroidManifest.xml:17:1-27:12
+MERGED from [com.android.support:animated-vector-drawable:23.4.0] C:\Users\Serch\.gradle\caches\transforms-1\files-1.1\animated-vector-drawable-23.4.0.aar\c8bb57e28f60a7444d7290b524c9bd93\AndroidManifest.xml:2:1-9:12
+MERGED from [com.android.support:support-vector-drawable:23.4.0] C:\Users\Serch\.gradle\caches\transforms-1\files-1.1\support-vector-drawable-23.4.0.aar\4d46cd403faf1c7c20057bac69cf8def\AndroidManifest.xml:2:1-9:12
+MERGED from [com.android.support:support-v4:24.1.1] C:\Users\Serch\.gradle\caches\transforms-1\files-1.1\support-v4-24.1.1.aar\7bed29421191dee3bf198d60509af6bd\AndroidManifest.xml:17:1-27:12
 MERGED from [:CordovaLib] C:\Users\Serch\Desktop\Altotonga\vivealtotonga\myApp\platforms\android\CordovaLib\build\intermediates\manifests\full\debug\AndroidManifest.xml:20:1-27:12
-INJECTED from C:\Users\Serch\Desktop\Altotonga\vivealtotonga\myApp\platforms\android\app\src\main\AndroidManifest.xml:2:1-13:12
-INJECTED from C:\Users\Serch\Desktop\Altotonga\vivealtotonga\myApp\platforms\android\app\src\main\AndroidManifest.xml:2:1-13:12
-INJECTED from C:\Users\Serch\Desktop\Altotonga\vivealtotonga\myApp\platforms\android\app\src\main\AndroidManifest.xml:2:1-13:12
+INJECTED from C:\Users\Serch\Desktop\Altotonga\vivealtotonga\myApp\platforms\android\app\src\main\AndroidManifest.xml:2:1-18:12
+INJECTED from C:\Users\Serch\Desktop\Altotonga\vivealtotonga\myApp\platforms\android\app\src\main\AndroidManifest.xml:2:1-18:12
+INJECTED from C:\Users\Serch\Desktop\Altotonga\vivealtotonga\myApp\platforms\android\app\src\main\AndroidManifest.xml:2:1-18:12
 	package
 		ADDED from C:\Users\Serch\Desktop\Altotonga\vivealtotonga\myApp\platforms\android\app\src\main\AndroidManifest.xml:2:98-124
 		INJECTED from C:\Users\Serch\Desktop\Altotonga\vivealtotonga\myApp\platforms\android\app\src\main\AndroidManifest.xml
@@ -39,7 +54,15 @@ ADDED from C:\Users\Serch\Desktop\Altotonga\vivealtotonga\myApp\platforms\androi
 	android:anyDensity
 		ADDED from C:\Users\Serch\Desktop\Altotonga\vivealtotonga\myApp\platforms\android\app\src\main\AndroidManifest.xml:3:23-48
 application
-ADDED from C:\Users\Serch\Desktop\Altotonga\vivealtotonga\myApp\platforms\android\app\src\main\AndroidManifest.xml:4:5-11:19
+ADDED from C:\Users\Serch\Desktop\Altotonga\vivealtotonga\myApp\platforms\android\app\src\main\AndroidManifest.xml:4:5-15:19
+MERGED from [com.android.support:appcompat-v7:23.4.0] C:\Users\Serch\.gradle\caches\transforms-1\files-1.1\appcompat-v7-23.4.0.aar\535af3a76f5a52a661aa3e07003aad3c\AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:appcompat-v7:23.4.0] C:\Users\Serch\.gradle\caches\transforms-1\files-1.1\appcompat-v7-23.4.0.aar\535af3a76f5a52a661aa3e07003aad3c\AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:animated-vector-drawable:23.4.0] C:\Users\Serch\.gradle\caches\transforms-1\files-1.1\animated-vector-drawable-23.4.0.aar\c8bb57e28f60a7444d7290b524c9bd93\AndroidManifest.xml:7:5-20
+MERGED from [com.android.support:animated-vector-drawable:23.4.0] C:\Users\Serch\.gradle\caches\transforms-1\files-1.1\animated-vector-drawable-23.4.0.aar\c8bb57e28f60a7444d7290b524c9bd93\AndroidManifest.xml:7:5-20
+MERGED from [com.android.support:support-vector-drawable:23.4.0] C:\Users\Serch\.gradle\caches\transforms-1\files-1.1\support-vector-drawable-23.4.0.aar\4d46cd403faf1c7c20057bac69cf8def\AndroidManifest.xml:7:5-20
+MERGED from [com.android.support:support-vector-drawable:23.4.0] C:\Users\Serch\.gradle\caches\transforms-1\files-1.1\support-vector-drawable-23.4.0.aar\4d46cd403faf1c7c20057bac69cf8def\AndroidManifest.xml:7:5-20
+MERGED from [com.android.support:support-v4:24.1.1] C:\Users\Serch\.gradle\caches\transforms-1\files-1.1\support-v4-24.1.1.aar\7bed29421191dee3bf198d60509af6bd\AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:support-v4:24.1.1] C:\Users\Serch\.gradle\caches\transforms-1\files-1.1\support-v4-24.1.1.aar\7bed29421191dee3bf198d60509af6bd\AndroidManifest.xml:25:5-20
 	android:supportsRtl
 		ADDED from C:\Users\Serch\Desktop\Altotonga\vivealtotonga\myApp\platforms\android\app\src\main\AndroidManifest.xml:4:114-140
 	android:label
@@ -74,15 +97,43 @@ category#android.intent.category.LAUNCHER
 ADDED from C:\Users\Serch\Desktop\Altotonga\vivealtotonga\myApp\platforms\android\app\src\main\AndroidManifest.xml:8:17-77
 	android:name
 		ADDED from C:\Users\Serch\Desktop\Altotonga\vivealtotonga\myApp\platforms\android\app\src\main\AndroidManifest.xml:8:27-74
+activity#com.synconset.MultiImageChooserActivity
+ADDED from C:\Users\Serch\Desktop\Altotonga\vivealtotonga\myApp\platforms\android\app\src\main\AndroidManifest.xml:11:9-160
+	android:label
+		ADDED from C:\Users\Serch\Desktop\Altotonga\vivealtotonga\myApp\platforms\android\app\src\main\AndroidManifest.xml:11:19-57
+	android:theme
+		ADDED from C:\Users\Serch\Desktop\Altotonga\vivealtotonga\myApp\platforms\android\app\src\main\AndroidManifest.xml:11:113-157
+	android:name
+		ADDED from C:\Users\Serch\Desktop\Altotonga\vivealtotonga\myApp\platforms\android\app\src\main\AndroidManifest.xml:11:58-112
 uses-sdk
-ADDED from C:\Users\Serch\Desktop\Altotonga\vivealtotonga\myApp\platforms\android\app\src\main\AndroidManifest.xml:12:5-74
-INJECTED from C:\Users\Serch\Desktop\Altotonga\vivealtotonga\myApp\platforms\android\app\src\main\AndroidManifest.xml:12:5-74
+ADDED from C:\Users\Serch\Desktop\Altotonga\vivealtotonga\myApp\platforms\android\app\src\main\AndroidManifest.xml:16:5-74
+INJECTED from C:\Users\Serch\Desktop\Altotonga\vivealtotonga\myApp\platforms\android\app\src\main\AndroidManifest.xml:16:5-74
+MERGED from [com.android.support:appcompat-v7:23.4.0] C:\Users\Serch\.gradle\caches\transforms-1\files-1.1\appcompat-v7-23.4.0.aar\535af3a76f5a52a661aa3e07003aad3c\AndroidManifest.xml:21:5-23:78
+MERGED from [com.android.support:appcompat-v7:23.4.0] C:\Users\Serch\.gradle\caches\transforms-1\files-1.1\appcompat-v7-23.4.0.aar\535af3a76f5a52a661aa3e07003aad3c\AndroidManifest.xml:21:5-23:78
+MERGED from [com.android.support:animated-vector-drawable:23.4.0] C:\Users\Serch\.gradle\caches\transforms-1\files-1.1\animated-vector-drawable-23.4.0.aar\c8bb57e28f60a7444d7290b524c9bd93\AndroidManifest.xml:5:5-44
+MERGED from [com.android.support:animated-vector-drawable:23.4.0] C:\Users\Serch\.gradle\caches\transforms-1\files-1.1\animated-vector-drawable-23.4.0.aar\c8bb57e28f60a7444d7290b524c9bd93\AndroidManifest.xml:5:5-44
+MERGED from [com.android.support:support-vector-drawable:23.4.0] C:\Users\Serch\.gradle\caches\transforms-1\files-1.1\support-vector-drawable-23.4.0.aar\4d46cd403faf1c7c20057bac69cf8def\AndroidManifest.xml:5:5-43
+MERGED from [com.android.support:support-vector-drawable:23.4.0] C:\Users\Serch\.gradle\caches\transforms-1\files-1.1\support-vector-drawable-23.4.0.aar\4d46cd403faf1c7c20057bac69cf8def\AndroidManifest.xml:5:5-43
+MERGED from [com.android.support:support-v4:24.1.1] C:\Users\Serch\.gradle\caches\transforms-1\files-1.1\support-v4-24.1.1.aar\7bed29421191dee3bf198d60509af6bd\AndroidManifest.xml:21:5-23:54
+MERGED from [com.android.support:support-v4:24.1.1] C:\Users\Serch\.gradle\caches\transforms-1\files-1.1\support-v4-24.1.1.aar\7bed29421191dee3bf198d60509af6bd\AndroidManifest.xml:21:5-23:54
 MERGED from [:CordovaLib] C:\Users\Serch\Desktop\Altotonga\vivealtotonga\myApp\platforms\android\CordovaLib\build\intermediates\manifests\full\debug\AndroidManifest.xml:25:5-44
 MERGED from [:CordovaLib] C:\Users\Serch\Desktop\Altotonga\vivealtotonga\myApp\platforms\android\CordovaLib\build\intermediates\manifests\full\debug\AndroidManifest.xml:25:5-44
-INJECTED from C:\Users\Serch\Desktop\Altotonga\vivealtotonga\myApp\platforms\android\app\src\main\AndroidManifest.xml:12:5-74
+INJECTED from C:\Users\Serch\Desktop\Altotonga\vivealtotonga\myApp\platforms\android\app\src\main\AndroidManifest.xml:16:5-74
+	tools:overrideLibrary
+		ADDED from [com.android.support:appcompat-v7:23.4.0] C:\Users\Serch\.gradle\caches\transforms-1\files-1.1\appcompat-v7-23.4.0.aar\535af3a76f5a52a661aa3e07003aad3c\AndroidManifest.xml:23:9-75
 	android:targetSdkVersion
-		ADDED from C:\Users\Serch\Desktop\Altotonga\vivealtotonga\myApp\platforms\android\app\src\main\AndroidManifest.xml:12:42-71
+		ADDED from C:\Users\Serch\Desktop\Altotonga\vivealtotonga\myApp\platforms\android\app\src\main\AndroidManifest.xml:16:42-71
 	android:minSdkVersion
-		ADDED from C:\Users\Serch\Desktop\Altotonga\vivealtotonga\myApp\platforms\android\app\src\main\AndroidManifest.xml:12:15-41
+		ADDED from C:\Users\Serch\Desktop\Altotonga\vivealtotonga\myApp\platforms\android\app\src\main\AndroidManifest.xml:16:15-41
 		INJECTED from C:\Users\Serch\Desktop\Altotonga\vivealtotonga\myApp\platforms\android\app\src\main\AndroidManifest.xml
 		INJECTED from C:\Users\Serch\Desktop\Altotonga\vivealtotonga\myApp\platforms\android\app\src\main\AndroidManifest.xml
+uses-permission#android.permission.WRITE_EXTERNAL_STORAGE
+ADDED from C:\Users\Serch\Desktop\Altotonga\vivealtotonga\myApp\platforms\android\app\src\main\AndroidManifest.xml:17:5-81
+	android:name
+		ADDED from C:\Users\Serch\Desktop\Altotonga\vivealtotonga\myApp\platforms\android\app\src\main\AndroidManifest.xml:17:22-78
+meta-data#android.support.FILE_PROVIDER_PATHS
+ADDED from C:\Users\Serch\Desktop\Altotonga\vivealtotonga\myApp\platforms\android\app\src\main\AndroidManifest.xml:13:13-123
+	android:resource
+		ADDED from C:\Users\Serch\Desktop\Altotonga\vivealtotonga\myApp\platforms\android\app\src\main\AndroidManifest.xml:13:75-120
+	android:name
+		ADDED from C:\Users\Serch\Desktop\Altotonga\vivealtotonga\myApp\platforms\android\app\src\main\AndroidManifest.xml:13:24-74

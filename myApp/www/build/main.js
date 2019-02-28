@@ -1,13 +1,14 @@
 webpackJsonp([4],{
 
-/***/ 108:
+/***/ 110:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return CamaraProvider; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ImagenesFirebasePage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__ionic_native_camera_ngx__ = __webpack_require__(601);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_native_image_picker_ngx__ = __webpack_require__(602);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(7);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_imagen_firebase_imagen_firebase__ = __webpack_require__(195);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_camara_camara__ = __webpack_require__(172);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -20,75 +21,50 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
-var CamaraProvider = /** @class */ (function () {
-    function CamaraProvider(camera, imagePicker) {
-        this.camera = camera;
-        this.imagePicker = imagePicker;
-        this.imagen64 = "";
+
+var ImagenesFirebasePage = /** @class */ (function () {
+    function ImagenesFirebasePage(navCtrl, navParams, imagenFirebaseProvider, camaraProvider) {
+        this.navCtrl = navCtrl;
+        this.navParams = navParams;
+        this.imagenFirebaseProvider = imagenFirebaseProvider;
+        this.camaraProvider = camaraProvider;
+        this.mostrarImagenes();
     }
-    CamaraProvider.prototype.mostrar_camara = function () {
-        var _this = this;
-        var options = {
-            quality: 70,
-            destinationType: this.camera.DestinationType.DATA_URL,
-            encodingType: this.camera.EncodingType.JPEG,
-            mediaType: this.camera.MediaType.PICTURE
-        };
-        this.camera.getPicture(options).then(function (imageData) {
-            // imageData is either a base64 encoded string or a file URI
-            // If it's base64 (DATA_URL):
-            _this._imgPreview = 'data:image/jpg;base64,' + imageData;
-            _this.imagen64 = imageData;
-        }, function (err) {
-            // Handle error
-            console.log('Error de camara: ', JSON.stringify(err));
-        });
+    ImagenesFirebasePage.prototype.mostrarFormulario = function () {
+        this.navCtrl.push('ImagenFormularioPage');
     };
-    CamaraProvider.prototype.seleccionar_foto = function () {
-        var _this = this;
-        var opciones = {
-            width: 800,
-            height: 800,
-            quality: 70,
-            outputType: 1,
-            maximumImagesCount: 1
-        };
-        this.imagePicker.getPictures(opciones).then(function (results) {
-            for (var i = 0; i < results.length; i++) {
-                //console.log('Image URI: ' + results[i]);
-                _this._imgPreview = 'data:image/jpg;base64,' + results[i];
-                _this.imagen64 = results[i];
-            }
-        }, function (err) {
-            console.log('Error en seleccionar la foto: ', JSON.stringify(err));
-            console.log(JSON.stringify(err));
-        });
+    ImagenesFirebasePage.prototype.mostrarImagenes = function () {
+        this.imagenFirebaseProvider.obtenerImagenes();
+        this.items = this.imagenFirebaseProvider.publicaciones;
     };
-    CamaraProvider = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["A" /* Injectable */])(),
-        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__ionic_native_camera_ngx__["a" /* Camera */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__ionic_native_camera_ngx__["a" /* Camera */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__ionic_native_image_picker_ngx__["a" /* ImagePicker */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__ionic_native_image_picker_ngx__["a" /* ImagePicker */]) === "function" && _b || Object])
-    ], CamaraProvider);
-    return CamaraProvider;
-    var _a, _b;
+    ImagenesFirebasePage = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
+            selector: 'page-imagenes-firebase',template:/*ion-inline-start:"C:\Users\Serch\Desktop\Altotonga\vivealtotonga\myApp\src\pages\imagenes-firebase\imagenes-firebase.html"*/'\n<ion-header>\n\n  <ion-navbar>\n    <ion-title>Lista de Imágenes</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n  <button class="bd-color" ion-item (click)="mostrarFormulario()">\n    Cargar Imagen\n  </button>\n  <br><br>\n  <button class="bd-color" ion-item (click)="mostrarImagenes()">\n    Mostrar imágenes\n  </button>\n\n  <ion-card *ngFor="let item of items | async">\n  \n      <img cache style="width: 250px; height: 200px;" [src]="item.img">\n  \n      <ion-card-content>\n        <ion-card-title>\n          Nombre: <b>{{ item.nombre }}</b><hr><br>\n          Apellidos: {{ item.apellidos }}\n        </ion-card-title>\n      </ion-card-content>\n  \n    </ion-card>\n\n</ion-content>\n'/*ion-inline-end:"C:\Users\Serch\Desktop\Altotonga\vivealtotonga\myApp\src\pages\imagenes-firebase\imagenes-firebase.html"*/,
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */],
+            __WEBPACK_IMPORTED_MODULE_2__providers_imagen_firebase_imagen_firebase__["a" /* ImagenFirebaseProvider */],
+            __WEBPACK_IMPORTED_MODULE_3__providers_camara_camara__["a" /* CamaraProvider */]])
+    ], ImagenesFirebasePage);
+    return ImagenesFirebasePage;
 }());
 
-//# sourceMappingURL=camara.js.map
+//# sourceMappingURL=imagenes-firebase.js.map
 
 /***/ }),
 
-/***/ 149:
+/***/ 153:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return HomePage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(7);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__publicidad_publicidad__ = __webpack_require__(272);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__turismo_turismo__ = __webpack_require__(278);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__gastronomia_gastronomia__ = __webpack_require__(279);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__historia_historia__ = __webpack_require__(280);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__altotonga_altotonga__ = __webpack_require__(269);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__about_about__ = __webpack_require__(150);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__publicidad_publicidad__ = __webpack_require__(283);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__turismo_turismo__ = __webpack_require__(289);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__gastronomia_gastronomia__ = __webpack_require__(290);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__historia_historia__ = __webpack_require__(291);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__altotonga_altotonga__ = __webpack_require__(280);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__about_about__ = __webpack_require__(154);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -146,7 +122,7 @@ var HomePage = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 150:
+/***/ 154:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -181,18 +157,90 @@ var AboutPage = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 190:
+/***/ 172:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return CamaraProvider; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__ionic_native_camera__ = __webpack_require__(196);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_native_image_picker__ = __webpack_require__(197);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+var CamaraProvider = /** @class */ (function () {
+    function CamaraProvider(camera, imagePicker) {
+        this.camera = camera;
+        this.imagePicker = imagePicker;
+        this.imagen64 = "";
+    }
+    CamaraProvider.prototype.mostrar_camara = function () {
+        var _this = this;
+        var options = {
+            quality: 70,
+            destinationType: this.camera.DestinationType.DATA_URL,
+            encodingType: this.camera.EncodingType.JPEG,
+            mediaType: this.camera.MediaType.PICTURE
+        };
+        this.camera.getPicture(options).then(function (imageData) {
+            _this._imgPreview = 'data:image/jpg;base64,' + imageData;
+            _this.imagen64 = imageData;
+        }, function (err) {
+            console.log('Error de camara: ', JSON.stringify(err));
+        });
+    };
+    CamaraProvider.prototype.seleccionar_foto = function () {
+        var _this = this;
+        var opciones = {
+            width: 800,
+            height: 800,
+            quality: 70,
+            outputType: 1,
+            maximumImagesCount: 1
+        };
+        this.imagePicker.getPictures(opciones).then(function (results) {
+            for (var i = 0; i < results.length; i++) {
+                _this._imgPreview = 'data:image/jpg;base64,' + results[i];
+                _this.imagen64 = results[i];
+            }
+        }, function (err) {
+            console.log('Error en seleccionar la foto: ', JSON.stringify(err));
+            console.log(JSON.stringify(err));
+        });
+    };
+    CamaraProvider = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["A" /* Injectable */])(),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__ionic_native_camera__["a" /* Camera */],
+            __WEBPACK_IMPORTED_MODULE_2__ionic_native_image_picker__["a" /* ImagePicker */]])
+    ], CamaraProvider);
+    return CamaraProvider;
+}());
+
+//# sourceMappingURL=camara.js.map
+
+/***/ }),
+
+/***/ 195:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ImagenFirebaseProvider; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_angularfire2_database__ = __webpack_require__(505);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_angularfire2_database__ = __webpack_require__(525);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_angularfire2_database___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_angularfire2_database__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_firebase__ = __webpack_require__(561);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_firebase__ = __webpack_require__(581);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_firebase___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_firebase__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_ionic_angular__ = __webpack_require__(7);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__camara_camara__ = __webpack_require__(108);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__camara_camara__ = __webpack_require__(172);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -212,49 +260,30 @@ var ImagenFirebaseProvider = /** @class */ (function () {
         this.fotos = fotos;
         this.afDB = afDB;
         this.loadingCtrl = loadingCtrl;
-        //areglo de imagenes
         this.imagenes = [];
     }
     ImagenFirebaseProvider.prototype.cargar_imagen_firebase = function (archivo) {
         var _this = this;
         try {
             var promesa = new Promise(function (resolve, reject) {
-                //this.mostrar_toast('Cargando...');
                 var loading = _this.loadingCtrl.create({
                     content: "Espere por favor",
                 });
                 loading.present();
-                //referencia al Storage de Firebsae
                 var storRef = __WEBPACK_IMPORTED_MODULE_2_firebase__["storage"]().ref();
                 var nombreArchivo = new Date().valueOf().toString();
-                //guatdar la imagen en Storage dentro de una carpeta 'img' en fireBase
-                /*
-                let uploadTask: firebase.storage.UploadTask =
-                  storRef.child('img/'+nombreArchivo)
-                    .putString( archivo.img+'', 'base64', { contentType: 'image/jpg' } );
-                */
-                //guatdar la imagen en Storage en fireBase (solucion para conpartir la imgane por facebook)
                 var uploadTask = storRef.child(nombreArchivo + '.jpg')
                     .putString(archivo.img + '', 'base64', { contentType: 'image/jpg' });
-                //muestra cuando el archivo se esta subiendo
-                uploadTask.on(__WEBPACK_IMPORTED_MODULE_2_firebase__["storage"].TaskEvent.STATE_CHANGED, function () { }, //saber el % de cuantos Mbis se han subido
-                function (error) {
+                uploadTask.on(__WEBPACK_IMPORTED_MODULE_2_firebase__["storage"].TaskEvent.STATE_CHANGED, function (error) {
                     loading.dismiss();
-                    //console.log("Error en la carga de la foto: ", JSON.stringify(error));
-                    //this.mensaje.message(JSON.stringify(error));
                     resolve();
                 }, function () {
-                    // TODO Bien!!
-                    //console.log('Archivo subido');
-                    //guardar la img en firebase
                     loading.dismiss();
                     console.log('</b> Imagen cargada correctamente.');
                     uploadTask.snapshot.ref.getDownloadURL().then(function (downloadURL) {
                         _this.crear_post(archivo.nombre, archivo.apellidos, downloadURL, nombreArchivo);
                         _this.fotos._imgPreview = "";
                     });
-                    //let url = uploadTask.snapshot.downloadURL;
-                    //this.crear_post(archivo.titulo, url, nombreArchivo);
                     resolve();
                 });
             });
@@ -271,11 +300,7 @@ var ImagenFirebaseProvider = /** @class */ (function () {
             apellidos: apellidos,
             key: nombreArchivo,
         };
-        //console.log(JSON.stringify(post));
-        //subir el arhivo a la BD firebase
-        //this.afDB.list('/post').push(post); //puede ser una manera de agegarlo con un nombre por defecto
         try {
-            //guardar con nombre personalizado es como un ID
             this.afDB.object('/post/' + nombreArchivo).update(post);
             this.imagenes.push(post);
         }
@@ -293,69 +318,18 @@ var ImagenFirebaseProvider = /** @class */ (function () {
     };
     ImagenFirebaseProvider = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["A" /* Injectable */])(),
-        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_4__camara_camara__["a" /* CamaraProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__camara_camara__["a" /* CamaraProvider */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_angularfire2_database__["AngularFireDatabase"] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_angularfire2_database__["AngularFireDatabase"]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["e" /* LoadingController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["e" /* LoadingController */]) === "function" && _c || Object])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_4__camara_camara__["a" /* CamaraProvider */],
+            __WEBPACK_IMPORTED_MODULE_1_angularfire2_database__["AngularFireDatabase"],
+            __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["e" /* LoadingController */]])
     ], ImagenFirebaseProvider);
     return ImagenFirebaseProvider;
-    var _a, _b, _c;
 }());
 
 //# sourceMappingURL=imagen-firebase.js.map
 
 /***/ }),
 
-/***/ 191:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ImagenesFirebasePage; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(7);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_imagen_firebase_imagen_firebase__ = __webpack_require__(190);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_camara_camara__ = __webpack_require__(108);
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-
-
-var ImagenesFirebasePage = /** @class */ (function () {
-    function ImagenesFirebasePage(navCtrl, navParams, imagenFirebaseProvider, camaraProvider) {
-        this.navCtrl = navCtrl;
-        this.navParams = navParams;
-        this.imagenFirebaseProvider = imagenFirebaseProvider;
-        this.camaraProvider = camaraProvider;
-        this.obtenerImagenes();
-    }
-    ImagenesFirebasePage.prototype.mostrarFormulario = function () {
-        this.navCtrl.push('ImagenFormularioPage');
-    };
-    ImagenesFirebasePage.prototype.obtenerImagenes = function () {
-        this.imagenFirebaseProvider.obtenerImagenes();
-        this.items = this.imagenFirebaseProvider.publicaciones;
-    };
-    ImagenesFirebasePage = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-imagenes-firebase',template:/*ion-inline-start:"C:\Users\Serch\Desktop\Altotonga\vivealtotonga\myApp\src\pages\imagenes-firebase\imagenes-firebase.html"*/'\n<ion-header>\n\n  <ion-navbar>\n    <ion-title>Lista de Imágenes</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n  <button class="bd-color" ion-item (click)="mostrarFormulario()">\n    Cargar Imagen\n  </button>\n\n  <ion-card *ngFor="let item of (items | async)?.slice().reverse()">\n  \n      <img cache style="width: 250px; height: 200px;" [src]="item.img">\n  \n      <ion-card-content>\n        <ion-card-title>\n          Nombre: <b>{{ item.nombre }}</b><hr><br>\n          Apellidos: {{ item.apellidos }}\n        </ion-card-title>\n      </ion-card-content>\n  \n    </ion-card>\n\n</ion-content>\n'/*ion-inline-end:"C:\Users\Serch\Desktop\Altotonga\vivealtotonga\myApp\src\pages\imagenes-firebase\imagenes-firebase.html"*/,
-        }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */],
-            __WEBPACK_IMPORTED_MODULE_2__providers_imagen_firebase_imagen_firebase__["a" /* ImagenFirebaseProvider */],
-            __WEBPACK_IMPORTED_MODULE_3__providers_camara_camara__["a" /* CamaraProvider */]])
-    ], ImagenesFirebasePage);
-    return ImagenesFirebasePage;
-}());
-
-//# sourceMappingURL=imagenes-firebase.js.map
-
-/***/ }),
-
-/***/ 192:
+/***/ 198:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -400,7 +374,7 @@ var MiAltotongaPage = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 226:
+/***/ 237:
 /***/ (function(module, exports) {
 
 function webpackEmptyAsyncContext(req) {
@@ -413,62 +387,62 @@ function webpackEmptyAsyncContext(req) {
 webpackEmptyAsyncContext.keys = function() { return []; };
 webpackEmptyAsyncContext.resolve = webpackEmptyAsyncContext;
 module.exports = webpackEmptyAsyncContext;
-webpackEmptyAsyncContext.id = 226;
+webpackEmptyAsyncContext.id = 237;
 
 /***/ }),
 
-/***/ 267:
+/***/ 278:
 /***/ (function(module, exports, __webpack_require__) {
 
 var map = {
 	"../pages/altotonga/altotonga.module": [
-		268
+		279
 	],
 	"../pages/antros/antros.module": [
-		270
+		281
 	],
 	"../pages/bienvenidos/bienvenidos.module": [
-		596,
+		617,
 		3
 	],
 	"../pages/gastronomia/gastronomia.module": [
-		281
+		292
 	],
 	"../pages/gimnasios/gimnasios.module": [
-		282
+		293
 	],
 	"../pages/historia/historia.module": [
-		283
+		294
 	],
 	"../pages/hoteleria/hoteleria.module": [
-		284
+		316
 	],
 	"../pages/imagen-formulario/imagen-formulario.module": [
-		597,
+		618,
 		0
 	],
 	"../pages/imagenes-firebase/imagenes-firebase.module": [
-		598,
+		620,
 		2
 	],
 	"../pages/mi-altotonga/mi-altotonga.module": [
-		599,
+		619,
 		1
 	],
 	"../pages/publicidad/publicidad.module": [
-		308
+		317
 	],
 	"../pages/restaurantes/restaurantes.module": [
-		309
+		321
 	],
 	"../pages/sitio/sitio.module": [
-		310
+		318
 	],
 	"../pages/tiendas/tiendas.module": [
-		311
+		319
 	],
 	"../pages/turismo/turismo.module": [
-		312
+		320
 	]
 };
 function webpackAsyncContext(req) {
@@ -482,12 +456,12 @@ function webpackAsyncContext(req) {
 webpackAsyncContext.keys = function webpackAsyncContextKeys() {
 	return Object.keys(map);
 };
-webpackAsyncContext.id = 267;
+webpackAsyncContext.id = 278;
 module.exports = webpackAsyncContext;
 
 /***/ }),
 
-/***/ 268:
+/***/ 279:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -495,7 +469,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AltotongaPageModule", function() { return AltotongaPageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(7);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__altotonga__ = __webpack_require__(269);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__altotonga__ = __webpack_require__(280);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -525,7 +499,7 @@ var AltotongaPageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 269:
+/***/ 280:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -570,7 +544,7 @@ var AltotongaPage = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 270:
+/***/ 281:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -578,7 +552,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AntrosPageModule", function() { return AntrosPageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(7);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__antros__ = __webpack_require__(271);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__antros__ = __webpack_require__(282);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -608,7 +582,7 @@ var AntrosPageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 271:
+/***/ 282:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -653,19 +627,19 @@ var AntrosPage = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 272:
+/***/ 283:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return PublicidadPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(7);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__hoteleria_hoteleria__ = __webpack_require__(273);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__restaurantes_restaurantes__ = __webpack_require__(274);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__gimnasios_gimnasios__ = __webpack_require__(275);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__sitio_sitio__ = __webpack_require__(276);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__antros_antros__ = __webpack_require__(271);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__tiendas_tiendas__ = __webpack_require__(277);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__hoteleria_hoteleria__ = __webpack_require__(284);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__restaurantes_restaurantes__ = __webpack_require__(285);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__gimnasios_gimnasios__ = __webpack_require__(286);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__sitio_sitio__ = __webpack_require__(287);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__antros_antros__ = __webpack_require__(282);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__tiendas_tiendas__ = __webpack_require__(288);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -728,7 +702,7 @@ var PublicidadPage = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 273:
+/***/ 284:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -773,7 +747,7 @@ var HoteleriaPage = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 274:
+/***/ 285:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -818,7 +792,7 @@ var RestaurantesPage = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 275:
+/***/ 286:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -863,7 +837,7 @@ var GimnasiosPage = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 276:
+/***/ 287:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -908,7 +882,7 @@ var SitioPage = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 277:
+/***/ 288:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -953,7 +927,7 @@ var TiendasPage = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 278:
+/***/ 289:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -998,7 +972,7 @@ var TurismoPage = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 279:
+/***/ 290:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1043,7 +1017,7 @@ var GastronomiaPage = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 280:
+/***/ 291:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1088,7 +1062,7 @@ var HistoriaPage = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 281:
+/***/ 292:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1096,7 +1070,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "GastronomiaPageModule", function() { return GastronomiaPageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(7);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__gastronomia__ = __webpack_require__(279);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__gastronomia__ = __webpack_require__(290);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1126,7 +1100,7 @@ var GastronomiaPageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 282:
+/***/ 293:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1134,7 +1108,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "GimnasiosPageModule", function() { return GimnasiosPageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(7);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__gimnasios__ = __webpack_require__(275);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__gimnasios__ = __webpack_require__(286);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1164,7 +1138,7 @@ var GimnasiosPageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 283:
+/***/ 294:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1172,7 +1146,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "HistoriaPageModule", function() { return HistoriaPageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(7);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__historia__ = __webpack_require__(280);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__historia__ = __webpack_require__(291);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1202,7 +1176,7 @@ var HistoriaPageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 284:
+/***/ 316:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1210,7 +1184,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "HoteleriaPageModule", function() { return HoteleriaPageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(7);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__hoteleria__ = __webpack_require__(273);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__hoteleria__ = __webpack_require__(284);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1240,7 +1214,7 @@ var HoteleriaPageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 308:
+/***/ 317:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1248,7 +1222,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PublicidadPageModule", function() { return PublicidadPageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(7);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__publicidad__ = __webpack_require__(272);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__publicidad__ = __webpack_require__(283);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1278,45 +1252,7 @@ var PublicidadPageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 309:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RestaurantesPageModule", function() { return RestaurantesPageModule; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(7);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__restaurantes__ = __webpack_require__(274);
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-
-
-
-var RestaurantesPageModule = /** @class */ (function () {
-    function RestaurantesPageModule() {
-    }
-    RestaurantesPageModule = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["I" /* NgModule */])({
-            declarations: [
-                __WEBPACK_IMPORTED_MODULE_2__restaurantes__["a" /* RestaurantesPage */],
-            ],
-            imports: [
-                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["d" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__restaurantes__["a" /* RestaurantesPage */]),
-            ],
-        })
-    ], RestaurantesPageModule);
-    return RestaurantesPageModule;
-}());
-
-//# sourceMappingURL=restaurantes.module.js.map
-
-/***/ }),
-
-/***/ 310:
+/***/ 318:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1324,7 +1260,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SitioPageModule", function() { return SitioPageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(7);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__sitio__ = __webpack_require__(276);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__sitio__ = __webpack_require__(287);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1354,7 +1290,7 @@ var SitioPageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 311:
+/***/ 319:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1362,7 +1298,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "TiendasPageModule", function() { return TiendasPageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(7);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__tiendas__ = __webpack_require__(277);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__tiendas__ = __webpack_require__(288);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1392,7 +1328,7 @@ var TiendasPageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 312:
+/***/ 320:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1400,7 +1336,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "TurismoPageModule", function() { return TurismoPageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(7);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__turismo__ = __webpack_require__(278);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__turismo__ = __webpack_require__(289);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1430,53 +1366,45 @@ var TurismoPageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 354:
+/***/ 321:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return TabsPage; });
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RestaurantesPageModule", function() { return RestaurantesPageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__about_about__ = __webpack_require__(150);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__contact_contact__ = __webpack_require__(355);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__home_home__ = __webpack_require__(149);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__mi_altotonga_mi_altotonga__ = __webpack_require__(192);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__imagenes_firebase_imagenes_firebase__ = __webpack_require__(191);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(7);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__restaurantes__ = __webpack_require__(285);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
 
 
 
-
-
-
-var TabsPage = /** @class */ (function () {
-    function TabsPage() {
-        this.tab1Root = __WEBPACK_IMPORTED_MODULE_3__home_home__["a" /* HomePage */];
-        this.tab2Root = __WEBPACK_IMPORTED_MODULE_1__about_about__["a" /* AboutPage */];
-        this.tab3Root = __WEBPACK_IMPORTED_MODULE_2__contact_contact__["a" /* ContactPage */];
-        this.tab4Root = __WEBPACK_IMPORTED_MODULE_4__mi_altotonga_mi_altotonga__["a" /* MiAltotongaPage */];
-        this.imagen = __WEBPACK_IMPORTED_MODULE_5__imagenes_firebase_imagenes_firebase__["a" /* ImagenesFirebasePage */];
+var RestaurantesPageModule = /** @class */ (function () {
+    function RestaurantesPageModule() {
     }
-    TabsPage = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({template:/*ion-inline-start:"C:\Users\Serch\Desktop\Altotonga\vivealtotonga\myApp\src\pages\tabs\tabs.html"*/'<ion-tabs color="danger">\n\n  <ion-tab [root]="tab1Root" tabTitle="Inicio" tabIcon="home"></ion-tab>\n\n  <ion-tab [root]="tab2Root" tabTitle="Sobre nosotros" tabIcon="information-circle"></ion-tab>\n\n  <ion-tab [root]="tab3Root" tabTitle="Top Software" tabIcon="people"></ion-tab>\n\n <ion-tab [root]="tab4Root" tabTitle="Mi Altotonga" tabIcon="image"></ion-tab>\n\n <ion-tab [root]="imagen" tabTitle="Imagen" tabIcon="image"></ion-tab>\n\n</ion-tabs>\n\n'/*ion-inline-end:"C:\Users\Serch\Desktop\Altotonga\vivealtotonga\myApp\src\pages\tabs\tabs.html"*/
-        }),
-        __metadata("design:paramtypes", [])
-    ], TabsPage);
-    return TabsPage;
+    RestaurantesPageModule = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["I" /* NgModule */])({
+            declarations: [
+                __WEBPACK_IMPORTED_MODULE_2__restaurantes__["a" /* RestaurantesPage */],
+            ],
+            imports: [
+                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["d" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__restaurantes__["a" /* RestaurantesPage */]),
+            ],
+        })
+    ], RestaurantesPageModule);
+    return RestaurantesPageModule;
 }());
 
-//# sourceMappingURL=tabs.js.map
+//# sourceMappingURL=restaurantes.module.js.map
 
 /***/ }),
 
-/***/ 355:
+/***/ 363:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1511,14 +1439,14 @@ var ContactPage = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 357:
+/***/ 365:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return BienvenidosPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(7);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__home_home__ = __webpack_require__(149);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__home_home__ = __webpack_require__(153);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1561,13 +1489,13 @@ var BienvenidosPage = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 358:
+/***/ 366:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__ = __webpack_require__(359);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__app_module__ = __webpack_require__(479);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__ = __webpack_require__(367);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__app_module__ = __webpack_require__(499);
 
 
 Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* platformBrowserDynamic */])().bootstrapModule(__WEBPACK_IMPORTED_MODULE_1__app_module__["a" /* AppModule */]);
@@ -1575,43 +1503,43 @@ Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* pl
 
 /***/ }),
 
-/***/ 479:
+/***/ 499:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* unused harmony export firebaseConfig */
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AppModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_platform_browser__ = __webpack_require__(56);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_platform_browser__ = __webpack_require__(57);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(7);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__app_component__ = __webpack_require__(591);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__pages_about_about__ = __webpack_require__(150);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__pages_contact_contact__ = __webpack_require__(355);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__pages_home_home__ = __webpack_require__(149);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__pages_tabs_tabs__ = __webpack_require__(354);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__pages_mi_altotonga_mi_altotonga__ = __webpack_require__(192);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__pages_publicidad_publicidad_module__ = __webpack_require__(308);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__pages_turismo_turismo_module__ = __webpack_require__(312);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__pages_gastronomia_gastronomia_module__ = __webpack_require__(281);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__pages_historia_historia_module__ = __webpack_require__(283);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__pages_altotonga_altotonga_module__ = __webpack_require__(268);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__ionic_native_status_bar__ = __webpack_require__(352);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__ionic_native_splash_screen__ = __webpack_require__(353);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__pages_hoteleria_hoteleria_module__ = __webpack_require__(284);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__pages_restaurantes_restaurantes_module__ = __webpack_require__(309);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__pages_gimnasios_gimnasios_module__ = __webpack_require__(282);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__pages_sitio_sitio_module__ = __webpack_require__(310);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__pages_antros_antros_module__ = __webpack_require__(270);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_21__pages_tiendas_tiendas_module__ = __webpack_require__(311);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_22__pages_bienvenidos_bienvenidos__ = __webpack_require__(357);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_23__providers_imagen_firebase_imagen_firebase__ = __webpack_require__(190);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_24__providers_camara_camara__ = __webpack_require__(108);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_25__pages_imagenes_firebase_imagenes_firebase__ = __webpack_require__(191);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_26__ionic_native_camera_ngx__ = __webpack_require__(601);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_27__ionic_native_image_picker_ngx__ = __webpack_require__(602);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_28__angular_fire__ = __webpack_require__(152);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_29__angular_fire_database__ = __webpack_require__(285);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_30__angular_fire_auth__ = __webpack_require__(592);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__app_component__ = __webpack_require__(611);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__pages_about_about__ = __webpack_require__(154);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__pages_contact_contact__ = __webpack_require__(363);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__pages_home_home__ = __webpack_require__(153);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__pages_tabs_tabs__ = __webpack_require__(612);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__pages_mi_altotonga_mi_altotonga__ = __webpack_require__(198);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__pages_publicidad_publicidad_module__ = __webpack_require__(317);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__pages_turismo_turismo_module__ = __webpack_require__(320);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__pages_gastronomia_gastronomia_module__ = __webpack_require__(292);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__pages_historia_historia_module__ = __webpack_require__(294);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__pages_altotonga_altotonga_module__ = __webpack_require__(279);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__ionic_native_status_bar__ = __webpack_require__(361);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__ionic_native_splash_screen__ = __webpack_require__(362);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__pages_hoteleria_hoteleria_module__ = __webpack_require__(316);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__pages_restaurantes_restaurantes_module__ = __webpack_require__(321);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__pages_gimnasios_gimnasios_module__ = __webpack_require__(293);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__pages_sitio_sitio_module__ = __webpack_require__(318);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__pages_antros_antros_module__ = __webpack_require__(281);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_21__pages_tiendas_tiendas_module__ = __webpack_require__(319);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_22__pages_bienvenidos_bienvenidos__ = __webpack_require__(365);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_23__providers_imagen_firebase_imagen_firebase__ = __webpack_require__(195);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_24__providers_camara_camara__ = __webpack_require__(172);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_25__pages_imagenes_firebase_imagenes_firebase__ = __webpack_require__(110);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_26__ionic_native_camera__ = __webpack_require__(196);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_27__ionic_native_image_picker__ = __webpack_require__(197);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_28__angular_fire__ = __webpack_require__(156);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_29__angular_fire_database__ = __webpack_require__(295);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_30__angular_fire_auth__ = __webpack_require__(613);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1682,15 +1610,15 @@ var AppModule = /** @class */ (function () {
                         { loadChildren: '../pages/gastronomia/gastronomia.module#GastronomiaPageModule', name: 'GastronomiaPage', segment: 'gastronomia', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/gimnasios/gimnasios.module#GimnasiosPageModule', name: 'GimnasiosPage', segment: 'gimnasios', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/historia/historia.module#HistoriaPageModule', name: 'HistoriaPage', segment: 'historia', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/hoteleria/hoteleria.module#HoteleriaPageModule', name: 'HoteleriaPage', segment: 'hoteleria', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/imagen-formulario/imagen-formulario.module#ImagenFormularioPageModule', name: 'ImagenFormularioPage', segment: 'imagen-formulario', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/imagenes-firebase/imagenes-firebase.module#ImagenesFirebasePageModule', name: 'ImagenesFirebasePage', segment: 'imagenes-firebase', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/mi-altotonga/mi-altotonga.module#MiAltotongaPageModule', name: 'MiAltotongaPage', segment: 'mi-altotonga', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/hoteleria/hoteleria.module#HoteleriaPageModule', name: 'HoteleriaPage', segment: 'hoteleria', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/imagenes-firebase/imagenes-firebase.module#ImagenesFirebasePageModule', name: 'ImagenesFirebasePage', segment: 'imagenes-firebase', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/publicidad/publicidad.module#PublicidadPageModule', name: 'PublicidadPage', segment: 'publicidad', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/restaurantes/restaurantes.module#RestaurantesPageModule', name: 'RestaurantesPage', segment: 'restaurantes', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/sitio/sitio.module#SitioPageModule', name: 'SitioPage', segment: 'sitio', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/tiendas/tiendas.module#TiendasPageModule', name: 'TiendasPage', segment: 'tiendas', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/turismo/turismo.module#TurismoPageModule', name: 'TurismoPage', segment: 'turismo', priority: 'low', defaultHistory: [] }
+                        { loadChildren: '../pages/turismo/turismo.module#TurismoPageModule', name: 'TurismoPage', segment: 'turismo', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/restaurantes/restaurantes.module#RestaurantesPageModule', name: 'RestaurantesPage', segment: 'restaurantes', priority: 'low', defaultHistory: [] }
                     ]
                 }),
                 __WEBPACK_IMPORTED_MODULE_9__pages_publicidad_publicidad_module__["PublicidadPageModule"],
@@ -1725,8 +1653,8 @@ var AppModule = /** @class */ (function () {
                 { provide: __WEBPACK_IMPORTED_MODULE_0__angular_core__["u" /* ErrorHandler */], useClass: __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["b" /* IonicErrorHandler */] },
                 __WEBPACK_IMPORTED_MODULE_23__providers_imagen_firebase_imagen_firebase__["a" /* ImagenFirebaseProvider */],
                 __WEBPACK_IMPORTED_MODULE_24__providers_camara_camara__["a" /* CamaraProvider */],
-                __WEBPACK_IMPORTED_MODULE_26__ionic_native_camera_ngx__["a" /* Camera */],
-                __WEBPACK_IMPORTED_MODULE_27__ionic_native_image_picker_ngx__["a" /* ImagePicker */],
+                __WEBPACK_IMPORTED_MODULE_26__ionic_native_camera__["a" /* Camera */],
+                __WEBPACK_IMPORTED_MODULE_27__ionic_native_image_picker__["a" /* ImagePicker */],
             ]
         })
     ], AppModule);
@@ -1737,16 +1665,16 @@ var AppModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 591:
+/***/ 611:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return MyApp; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(7);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__ = __webpack_require__(352);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__ = __webpack_require__(353);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__pages_tabs_tabs__ = __webpack_require__(354);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__ = __webpack_require__(361);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__ = __webpack_require__(362);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__pages_imagenes_firebase_imagenes_firebase__ = __webpack_require__(110);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1763,7 +1691,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 var MyApp = /** @class */ (function () {
     function MyApp(platform, statusBar, splashScreen) {
-        this.rootPage = __WEBPACK_IMPORTED_MODULE_4__pages_tabs_tabs__["a" /* TabsPage */];
+        this.rootPage = __WEBPACK_IMPORTED_MODULE_4__pages_imagenes_firebase_imagenes_firebase__["a" /* ImagenesFirebasePage */];
         platform.ready().then(function () {
             // Okay, so the platform is ready and our plugins are available.
             // Here you can do any higher level native things you might need.
@@ -1781,7 +1709,53 @@ var MyApp = /** @class */ (function () {
 
 //# sourceMappingURL=app.component.js.map
 
+/***/ }),
+
+/***/ 612:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return TabsPage; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__about_about__ = __webpack_require__(154);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__contact_contact__ = __webpack_require__(363);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__home_home__ = __webpack_require__(153);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__mi_altotonga_mi_altotonga__ = __webpack_require__(198);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__imagenes_firebase_imagenes_firebase__ = __webpack_require__(110);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+
+
+var TabsPage = /** @class */ (function () {
+    function TabsPage() {
+        this.tab1Root = __WEBPACK_IMPORTED_MODULE_3__home_home__["a" /* HomePage */];
+        this.tab2Root = __WEBPACK_IMPORTED_MODULE_1__about_about__["a" /* AboutPage */];
+        this.tab3Root = __WEBPACK_IMPORTED_MODULE_2__contact_contact__["a" /* ContactPage */];
+        this.tab4Root = __WEBPACK_IMPORTED_MODULE_4__mi_altotonga_mi_altotonga__["a" /* MiAltotongaPage */];
+        this.imagen = __WEBPACK_IMPORTED_MODULE_5__imagenes_firebase_imagenes_firebase__["a" /* ImagenesFirebasePage */];
+    }
+    TabsPage = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({template:/*ion-inline-start:"C:\Users\Serch\Desktop\Altotonga\vivealtotonga\myApp\src\pages\tabs\tabs.html"*/'<ion-tabs color="danger">\n\n  <ion-tab [root]="tab1Root" tabTitle="Inicio" tabIcon="home"></ion-tab>\n\n  <ion-tab [root]="tab2Root" tabTitle="Sobre nosotros" tabIcon="information-circle"></ion-tab>\n\n  <ion-tab [root]="tab3Root" tabTitle="Top Software" tabIcon="people"></ion-tab>\n\n <ion-tab [root]="tab4Root" tabTitle="Mi Altotonga" tabIcon="image"></ion-tab>\n\n <ion-tab [root]="imagen" tabTitle="Imagen" tabIcon="image"></ion-tab>\n\n</ion-tabs>\n\n'/*ion-inline-end:"C:\Users\Serch\Desktop\Altotonga\vivealtotonga\myApp\src\pages\tabs\tabs.html"*/
+        }),
+        __metadata("design:paramtypes", [])
+    ], TabsPage);
+    return TabsPage;
+}());
+
+//# sourceMappingURL=tabs.js.map
+
 /***/ })
 
-},[358]);
+},[366]);
 //# sourceMappingURL=main.js.map

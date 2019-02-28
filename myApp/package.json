@@ -20,9 +20,9 @@
     "@angular/http": "5.2.11",
     "@angular/platform-browser": "5.2.11",
     "@angular/platform-browser-dynamic": "5.2.11",
-    "@ionic-native/camera": "^5.2.0",
+    "@ionic-native/camera": "^4.20.0",
     "@ionic-native/core": "~4.18.0",
-    "@ionic-native/image-picker": "^5.2.0",
+    "@ionic-native/image-picker": "^4.20.0",
     "@ionic-native/splash-screen": "~4.18.0",
     "@ionic-native/status-bar": "~4.18.0",
     "@ionic/storage": "2.2.0",
@@ -41,8 +41,8 @@
     "ionic-img-viewer": "^2.9.0",
     "ionicons": "3.0.0",
     "promise-polyfill": "^8.1.0",
-    "rxjs": "^6.0.0",
-    "rxjs-compat": "^6.4.0",
+    "rxjs": "^6.3.3",
+    "rxjs-compat": "^6.3.3",
     "sw-toolbox": "3.6.0",
     "zone.js": "0.8.26"
   },
@@ -61,7 +61,9 @@
         "ANDROID_SUPPORT_ANNOTATIONS_VERSION": "27.+"
       },
       "cordova-plugin-ionic-keyboard": {},
-      "cordova-plugin-telerik-imagepicker": {},
+      "cordova-plugin-telerik-imagepicker": {
+        "PHOTO_LIBRARY_USAGE_DESCRIPTION": "your usage message"
+      },
       "cordova-plugin-camera": {}
     },
     "platforms": [
