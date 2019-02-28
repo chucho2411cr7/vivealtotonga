@@ -1,0 +1,29 @@
+
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Lista de Imágenes</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <button class="bd-color" ion-item (click)="mostrarFormulario()">
+    Cargar Imagen
+  </button>
+
+  <ion-card *ngFor="let item of (items | async)?.slice().reverse()">
+  
+      <img cache style="width: 250px; height: 200px;" [src]="item.img">
+  
+      <ion-card-content>
+        <ion-card-title>
+          Nombre: <b>{{ item.nombre }}</b><hr><br>
+          Apellidos: {{ item.apellidos }}
+        </ion-card-title>
+      </ion-card-content>
+  
+    </ion-card>
+
+</ion-content>

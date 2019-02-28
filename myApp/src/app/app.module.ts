@@ -15,7 +15,6 @@ import {AltotongaPageModule} from '../pages/altotonga/altotonga.module';
 
 
 
-
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { HoteleriaPageModule } from '../pages/hoteleria/hoteleria.module';
@@ -25,8 +24,25 @@ import { SitioPageModule } from '../pages/sitio/sitio.module';
 import { AntrosPageModule } from '../pages/antros/antros.module';
 import { TiendasPageModule } from '../pages/tiendas/tiendas.module';
 import {BienvenidosPage} from '../pages/bienvenidos/bienvenidos';
+import { ImagenFirebaseProvider } from '../providers/imagen-firebase/imagen-firebase';
+import { CamaraProvider } from '../providers/camara/camara';
+import { ImagenesFirebasePage } from '../pages/imagenes-firebase/imagenes-firebase';
 
 
+import { Camera, CameraOptions } from '@ionic-native/camera/ngx';
+import { ImagePicker } from '@ionic-native/image-picker/ngx';
+import { AngularFireModule } from '@angular/fire';
+import { AngularFireDatabaseModule, AngularFireDatabase } from '@angular/fire/database';
+import { AngularFireAuthModule } from '@angular/fire/auth';
+
+export const firebaseConfig = {
+  apiKey: "AIzaSyA818ZDqOYcTDseyrnZxKCn1qQxbyRHG0k",
+    authDomain: "altotonga-6be61.firebaseapp.com",
+    databaseURL: "https://altotonga-6be61.firebaseio.com",
+    projectId: "altotonga-6be61",
+    storageBucket: "altotonga-6be61.appspot.com",
+    messagingSenderId: "588659933911"
+};
 
 @NgModule({
   declarations: [
@@ -36,7 +52,8 @@ import {BienvenidosPage} from '../pages/bienvenidos/bienvenidos';
     HomePage,
     TabsPage,
     MiAltotongaPage,
-    BienvenidosPage
+    BienvenidosPage,
+    ImagenesFirebasePage,
   ],
   imports: [
     BrowserModule,
@@ -51,7 +68,11 @@ import {BienvenidosPage} from '../pages/bienvenidos/bienvenidos';
     GimnasiosPageModule,
     SitioPageModule,
     AntrosPageModule,
-    TiendasPageModule
+    TiendasPageModule, 
+
+    AngularFireModule.initializeApp(firebaseConfig),
+    AngularFireDatabaseModule,
+    AngularFireAuthModule,
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -60,13 +81,18 @@ import {BienvenidosPage} from '../pages/bienvenidos/bienvenidos';
     ContactPage,
     HomePage,
     TabsPage,
-    MiAltotongaPage,
-    BienvenidosPage
+    MiAltotongaPage, 
+    BienvenidosPage,
+    ImagenesFirebasePage,
   ],
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    ImagenFirebaseProvider,
+    CamaraProvider,
+    Camera,
+    ImagePicker,
   ]
 })
 export class AppModule {}

@@ -1,0 +1,39 @@
+
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Cargar Imagen</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+  <ion-item>
+    <ion-label>Nombre: </ion-label>
+    <ion-input type="text" [(ngModel)]="nombre"></ion-input><br>
+  </ion-item>
+  <ion-item>
+    <ion-label>Apellidos: </ion-label>
+    <ion-input type="text" [(ngModel)]="apellidos"></ion-input><br>
+  </ion-item>
+  <ion-item *ngIf="camaraProvider._imgPreview">
+    <img [src]="camaraProvider._imgPreview" alt="">
+  </ion-item>
+
+  <button ion-button block round (click)="seleccionar_foto()">
+    Seleccionar de la galeria
+  </button>
+
+  <button ion-button block round (click)="mostrar_camara()">
+    Abrir camara
+  </button>
+
+  <button ion-button round icon-start color="secondary" (click)="publicar_post()" 
+      [disabled]="nombre.length <= 0 || apellidos.length <= 0 || camaraProvider._imgPreview.length <= 0">
+    Guardar 
+  </button>
+
+
+</ion-content>
