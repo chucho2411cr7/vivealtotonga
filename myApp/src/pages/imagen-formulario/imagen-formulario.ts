@@ -28,6 +28,7 @@ export class ImagenFormularioPage {
     ) {
 
       this._imgPreview;
+
   }
 
   mostrar_camara(){
@@ -66,13 +67,14 @@ export class ImagenFormularioPage {
     });
   }
 
-  publicar_post(){
+  guardar_imagen(){
     let archivo = {
       img: this.imagen64,
       nombre: this.nombre,
       apellidos: this.apellidos,
     }
-    this.imagenFirebaseProvider.cargar_imagen_firebase(archivo);
+      this.imagenFirebaseProvider.cargar_imagen_firebase(archivo);
+      //this.imagenFirebaseProvider.crear_post(this.nombre, this.apellidos, this.nombre, this.apellidos);
       this._imgPreview = null; 
   }
 

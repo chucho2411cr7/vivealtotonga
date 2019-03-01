@@ -109,26 +109,24 @@ var ImagenFormularioPage = /** @class */ (function () {
             console.log(JSON.stringify(err));
         });
     };
-    ImagenFormularioPage.prototype.publicar_post = function () {
+    ImagenFormularioPage.prototype.guardar_imagen = function () {
         var archivo = {
             img: this.imagen64,
             nombre: this.nombre,
             apellidos: this.apellidos,
         };
         this.imagenFirebaseProvider.cargar_imagen_firebase(archivo);
+        //this.imagenFirebaseProvider.crear_post(this.nombre, this.apellidos, this.nombre, this.apellidos);
         this._imgPreview = null;
     };
     ImagenFormularioPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-imagen-formulario',template:/*ion-inline-start:"C:\Users\Serch\Desktop\Altotonga\vivealtotonga\myApp\src\pages\imagen-formulario\imagen-formulario.html"*/'\n<ion-header>\n\n  <ion-navbar>\n    <ion-title>Cargar Imagen</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n\n  <ion-item>\n    <ion-label>Nombre: </ion-label>\n    <ion-input type="text" [(ngModel)]="nombre"></ion-input><br>\n  </ion-item>\n  <ion-item>\n    <ion-label>Apellidos: </ion-label>\n    <ion-input type="text" [(ngModel)]="apellidos"></ion-input><br>\n  </ion-item>\n  <ion-item *ngIf="_imgPreview">\n    <img [src]="_imgPreview" alt="">\n  </ion-item>\n\n  <button ion-button block round (click)="seleccionar_foto()">\n    Seleccionar de la galeria\n  </button>\n\n  <button ion-button block round (click)="mostrar_camara()">\n    Abrir camara\n  </button>\n\n  <!-- [disabled]="nombre.length <= 0 || apellidos.length <= 0 || camaraProvider._imgPreview.length <= 0" -->\n  <button ion-button round icon-start color="secondary" (click)="publicar_post()" \n      >\n    Guardar \n  </button>\n\n\n</ion-content>\n'/*ion-inline-end:"C:\Users\Serch\Desktop\Altotonga\vivealtotonga\myApp\src\pages\imagen-formulario\imagen-formulario.html"*/,
+            selector: 'page-imagen-formulario',template:/*ion-inline-start:"C:\Users\Serch\Desktop\Altotonga\vivealtotonga\myApp\src\pages\imagen-formulario\imagen-formulario.html"*/'\n<ion-header>\n\n  <ion-navbar>\n    <ion-title>Cargar Imagen</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n\n  <ion-item>\n    <ion-label>Nombre: </ion-label>\n    <ion-input type="text" [(ngModel)]="nombre"></ion-input><br>\n  </ion-item>\n  <ion-item>\n    <ion-label>Apellidos: </ion-label>\n    <ion-input type="text" [(ngModel)]="apellidos"></ion-input><br>\n  </ion-item>\n  <ion-item *ngIf="_imgPreview">\n    <img [src]="_imgPreview" alt="">\n  </ion-item>\n\n  <button ion-button block round (click)="seleccionar_foto()">\n    Seleccionar de la galeria\n  </button>\n\n  <button ion-button block round (click)="mostrar_camara()">\n    Abrir camara\n  </button>\n\n  <!-- [disabled]="nombre.length <= 0 || apellidos.length <= 0 || _imgPreview.length <= 0" -->\n  <button ion-button round icon-start color="secondary" (click)="guardar_imagen()" \n      >\n    Guardar \n  </button>\n\n\n</ion-content>\n'/*ion-inline-end:"C:\Users\Serch\Desktop\Altotonga\vivealtotonga\myApp\src\pages\imagen-formulario\imagen-formulario.html"*/,
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */],
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */],
-            __WEBPACK_IMPORTED_MODULE_2__providers_imagen_firebase_imagen_firebase__["a" /* ImagenFirebaseProvider */],
-            __WEBPACK_IMPORTED_MODULE_3__ionic_native_camera__["a" /* Camera */],
-            __WEBPACK_IMPORTED_MODULE_4__ionic_native_image_picker__["a" /* ImagePicker */]])
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_2__providers_imagen_firebase_imagen_firebase__["a" /* ImagenFirebaseProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__providers_imagen_firebase_imagen_firebase__["a" /* ImagenFirebaseProvider */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_3__ionic_native_camera__["a" /* Camera */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__ionic_native_camera__["a" /* Camera */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_4__ionic_native_image_picker__["a" /* ImagePicker */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__ionic_native_image_picker__["a" /* ImagePicker */]) === "function" && _e || Object])
     ], ImagenFormularioPage);
     return ImagenFormularioPage;
+    var _a, _b, _c, _d, _e;
 }());
 
 //# sourceMappingURL=imagen-formulario.js.map

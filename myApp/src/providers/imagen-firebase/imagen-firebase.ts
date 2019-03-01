@@ -6,6 +6,8 @@ import { LoadingController  } from 'ionic-angular';
 
 @Injectable()
 export class ImagenFirebaseProvider {
+  
+  imagenes:ArchivoSubir[] = [];
 
   constructor(
     private afDB: AngularFireDatabase,
@@ -13,9 +15,10 @@ export class ImagenFirebaseProvider {
  
   }
 
-  imagenes:ArchivoSubir[] = [];
+  
 
   cargar_imagen_firebase( archivo:ArchivoSubir ){
+
     try {
       let promesa = new Promise((resolve, reject)=>{
       let loading = this.loadingCtrl.create({
@@ -49,10 +52,13 @@ export class ImagenFirebaseProvider {
     } catch (error) {
       console.log('Error al cargar la imagen');
     }
-    
+
   }
 
-  private crear_post( nombre:String, apellidos:String, url:String, nombreArchivo:String){
+  public crear_post( nombre:String, apellidos:String, url:String, nombreArchivo:String){
+    console.log('crear_post');
+    console.log(nombre);
+    console.log(apellidos);
     let post: ArchivoSubir = {
       img: url,
       nombre: nombre,

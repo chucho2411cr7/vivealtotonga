@@ -4,7 +4,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
 import { ImagenFirebaseProvider } from '../../providers/imagen-firebase/imagen-firebase';
 import { Observable } from 'rxjs-compat';
-import { AngularFireDatabase, AngularFireList } from 'angularfire2/database';
+import { AngularFireDatabase } from 'angularfire2/database';
 
 @IonicPage()
 @Component({

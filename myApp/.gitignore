@@ -1,6 +1,8 @@
 # Specifies intentionally untracked files to ignore when using Git
 # http://git-scm.com/docs/gitignore
 
+platforms/*
+
 *~
 *.sw[mnpcod]
 *.log
@@ -12,10 +14,10 @@ log.txt
 .vscode/
 npm-debug.log*
 
-platforms/
-www/
 
 $RECYCLE.BIN/
+
+
 
 .DS_Store
 Thumbs.db
