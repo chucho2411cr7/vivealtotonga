@@ -1,23 +1,19 @@
 
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs-compat';
-import { AngularFireDatabase, AngularFireList } from 'angularfire2/database';
+import { AngularFireDatabase } from 'angularfire2/database';
 import * as firebase from 'firebase';
 import { LoadingController  } from 'ionic-angular';
-import { CamaraProvider } from '../camara/camara';
-
 
 @Injectable()
 export class ImagenFirebaseProvider {
 
-  constructor(private fotos: CamaraProvider, 
+  constructor(
     private afDB: AngularFireDatabase,
     private loadingCtrl: LoadingController) {
  
   }
 
   imagenes:ArchivoSubir[] = [];
-  lastkey:String;
 
   cargar_imagen_firebase( archivo:ArchivoSubir ){
     try {
@@ -28,12 +24,14 @@ export class ImagenFirebaseProvider {
       loading.present();
       let storRef = firebase.storage().ref();
       let nombreArchivo:string = new Date().valueOf().toString();
+
       let uploadTask: firebase.storage.UploadTask = 
         storRef.child(nombreArchivo+'.jpg')
         .putString( archivo.img+'', 'base64', { contentType: 'image/jpg' } );    
           uploadTask.on( firebase.storage.TaskEvent.STATE_CHANGED, 
             ( error ) => {
                 loading.dismiss();
+                console.log("Error en la carga");
                 resolve();
             },
             ()=>{
@@ -42,7 +40,6 @@ export class ImagenFirebaseProvider {
 
               uploadTask.snapshot.ref.getDownloadURL().then(downloadURL => {
                 this.crear_post(archivo.nombre, archivo.apellidos, downloadURL, nombreArchivo);
-                this.fotos._imgPreview="";
               }); 
               resolve();
             }
@@ -71,14 +68,7 @@ export class ImagenFirebaseProvider {
     }
   }  
 
-  publicaciones: Observable<any[]>;
-  obtenerImagenes() {
-    try {
-      this.publicaciones = this.afDB.list('post').valueChanges();
-    } catch (error) {
-      console.log('Error al obtener los datos');
-    }
-  }
+  
 
 }
 

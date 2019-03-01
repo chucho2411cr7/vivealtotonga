@@ -10,20 +10,21 @@
 
 <ion-content padding>
   <button class="bd-color" ion-item (click)="mostrarFormulario()">
-    Cargar Imagen
+    Formulario
   </button>
   <br><br>
   <button class="bd-color" ion-item (click)="mostrarImagenes()">
-    Mostrar imágenes
+    Mostrar
   </button>
 
-  <ion-card *ngFor="let item of items | async">
+  <ion-card *ngFor="let item of imagenes | async">
   
-      <img cache style="width: 250px; height: 200px;" [src]="item.img">
+      <img [src]="item.img">
   
       <ion-card-content>
         <ion-card-title>
-          Nombre: <b>{{ item.nombre }}</b><hr><br>
+          Nombre: {{ item.nombre }}
+          <hr><br>
           Apellidos: {{ item.apellidos }}
         </ion-card-title>
       </ion-card-content>

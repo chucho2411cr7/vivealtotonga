@@ -14,11 +14,10 @@ import { ImagePicker, ImagePickerOptions } from '@ionic-native/image-picker';
 })
 export class ImagenFormularioPage {
 
-  public _imgPreview: String;
-  public imagen64:String = "";
-
   public nombre:String = "";
   public apellidos:String = "";
+  public _imgPreview: String ="";
+  public imagen64:String = "";
 
   constructor(public navCtrl: NavController, 
     public navParams: NavParams,

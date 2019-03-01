@@ -3,8 +3,8 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
 
 import { ImagenFirebaseProvider } from '../../providers/imagen-firebase/imagen-firebase';
-import { CamaraProvider } from '../../providers/camara/camara';
-import { Observable } from 'rxjs/observable';
+import { Observable } from 'rxjs-compat';
+import { AngularFireDatabase, AngularFireList } from 'angularfire2/database';
 
 @IonicPage()
 @Component({
@@ -12,13 +12,13 @@ import { Observable } from 'rxjs/observable';
   templateUrl: 'imagenes-firebase.html',
 })
 export class ImagenesFirebasePage {
-  items: Observable<any[]>;
+  imagenes: Observable<any[]>;
 
   constructor(public navCtrl: NavController, public navParams: NavParams,
     public imagenFirebaseProvider: ImagenFirebaseProvider,
-    public camaraProvider : CamaraProvider) {
+    private afDB: AngularFireDatabase,) {
 
-      this.mostrarImagenes();
+      this.obtenerImagenes();
       
   }
 
@@ -26,9 +26,12 @@ export class ImagenesFirebasePage {
     this.navCtrl.push('ImagenFormularioPage');
   }
 
-  mostrarImagenes(){
-    this.imagenFirebaseProvider.obtenerImagenes();
-    this.items = this.imagenFirebaseProvider.publicaciones;
+  obtenerImagenes() {
+    try {
+      this.imagenes = this.afDB.list('post').valueChanges();
+    } catch (error) {
+      console.log('Error al obtener los datos');
+    }
   }
 
 }

@@ -25,11 +25,10 @@ import { AntrosPageModule } from '../pages/antros/antros.module';
 import { TiendasPageModule } from '../pages/tiendas/tiendas.module';
 import {BienvenidosPage} from '../pages/bienvenidos/bienvenidos';
 import { ImagenFirebaseProvider } from '../providers/imagen-firebase/imagen-firebase';
-import { CamaraProvider } from '../providers/camara/camara';
 import { ImagenesFirebasePage } from '../pages/imagenes-firebase/imagenes-firebase';
 
 
-import { Camera, CameraOptions } from '@ionic-native/camera';
+import { Camera } from '@ionic-native/camera';
 import { ImagePicker } from '@ionic-native/image-picker';
 import { AngularFireModule } from '@angular/fire';
 import { AngularFireDatabaseModule, AngularFireDatabase } from '@angular/fire/database';
@@ -58,6 +57,11 @@ export const firebaseConfig = {
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),
+
+    AngularFireModule.initializeApp(firebaseConfig),
+    AngularFireDatabaseModule,
+    AngularFireAuthModule,
+
     PublicidadPageModule,
     TurismoPageModule,
     GastronomiaPageModule,
@@ -70,9 +74,7 @@ export const firebaseConfig = {
     AntrosPageModule,
     TiendasPageModule, 
 
-    AngularFireModule.initializeApp(firebaseConfig),
-    AngularFireDatabaseModule,
-    AngularFireAuthModule,
+    
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -88,9 +90,9 @@ export const firebaseConfig = {
   providers: [
     StatusBar,
     SplashScreen,
+    AngularFireDatabase,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     ImagenFirebaseProvider,
-    CamaraProvider,
     Camera,
     ImagePicker,
   ]
