@@ -17,7 +17,7 @@ export class ImagenFormularioPage {
   public nombre:String = "";
   public apellidos:String = "";
   public _imgPreview: String ="";
-  public imagen64:String = "";
+  public imagen64:String;
 
   constructor(public navCtrl: NavController, 
     public navParams: NavParams,

@@ -32,7 +32,7 @@
 
   <!-- [disabled]="nombre.length <= 0 || apellidos.length <= 0 || _imgPreview.length <= 0" -->
   <button ion-button round icon-start color="secondary" (click)="guardar_imagen()" 
-      >
+    [disabled]="nombre.length <= 0 || apellidos.length <= 0 || _imgPreview.length <= 0">
     Guardar 
   </button>
 
