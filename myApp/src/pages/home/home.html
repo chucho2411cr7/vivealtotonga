@@ -7,29 +7,7 @@
   </ion-navbar>
 </ion-header>
 
-<ion-menu [content]="content">
-  <ion-header>
-    <ion-toolbar color="danger">
-      <ion-title>Menu</ion-title>
-    </ion-toolbar >
-  </ion-header>
-  <ion-content class="bd-color">
-    <ion-list class="bd-color">
-      <button class="bd-color" ion-item (click)="inicio()">
-        Inicio
-      </button>
-      <button class="bd-color" ion-item (click)="sobre()">
-        ¿Quienes somos?
-      </button>
-      <button class="bd-color" ion-item (click)="openPage(eventsPage)">
-        Bienvenido!
-      </button>
-      <button class="bd-color" ion-item (click)="closeMenu()">
-        Close Menu
-      </button>
-    </ion-list>
-  </ion-content>
-</ion-menu>
+
 
 <ion-nav id="nav" #content [root]="rootPage"></ion-nav>
 
@@ -37,7 +15,7 @@
 
     <ion-card (click)="altotonga()">
         <ion-card-content>
-            <img src="assets/imgs/vive.png"/>
+            <img src="assets/imgs/vivealtotonga.png"/>
         </ion-card-content>
         <h1 text-center>
           <a> Vive Altotonga</a>

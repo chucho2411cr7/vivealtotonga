@@ -6,7 +6,7 @@ import { AboutPage } from '../pages/about/about';
 import { ContactPage } from '../pages/contact/contact';
 import { HomePage } from '../pages/home/home';
 import { TabsPage } from '../pages/tabs/tabs';
-import {MiAltotongaPage} from '../pages/mi-altotonga/mi-altotonga';
+
 import {PublicidadPageModule} from '../pages/publicidad/publicidad.module';
 import {TurismoPageModule} from '../pages/turismo/turismo.module';
 import {GastronomiaPageModule} from '../pages/gastronomia/gastronomia.module';
@@ -23,9 +23,10 @@ import { GimnasiosPageModule } from '../pages/gimnasios/gimnasios.module';
 import { SitioPageModule } from '../pages/sitio/sitio.module';
 import { AntrosPageModule } from '../pages/antros/antros.module';
 import { TiendasPageModule } from '../pages/tiendas/tiendas.module';
-import {BienvenidosPage} from '../pages/bienvenidos/bienvenidos';
+
 import { ImagenFirebaseProvider } from '../providers/imagen-firebase/imagen-firebase';
 import { ImagenesFirebasePage } from '../pages/imagenes-firebase/imagenes-firebase';
+
 
 
 import { Camera } from '@ionic-native/camera';
@@ -33,6 +34,7 @@ import { ImagePicker } from '@ionic-native/image-picker';
 import { AngularFireModule } from '@angular/fire';
 import { AngularFireDatabaseModule, AngularFireDatabase } from '@angular/fire/database';
 import { AngularFireAuthModule } from '@angular/fire/auth';
+import { TerminosPageModule } from '../pages/terminos/terminos.module';
 
 export const firebaseConfig = {
   apiKey: "AIzaSyA818ZDqOYcTDseyrnZxKCn1qQxbyRHG0k",
@@ -50,8 +52,8 @@ export const firebaseConfig = {
     ContactPage,
     HomePage,
     TabsPage,
-    MiAltotongaPage,
-    BienvenidosPage,
+    
+    
     ImagenesFirebasePage,
   ],
   imports: [
@@ -73,6 +75,7 @@ export const firebaseConfig = {
     SitioPageModule,
     AntrosPageModule,
     TiendasPageModule, 
+    TerminosPageModule,
 
     
   ],
@@ -83,8 +86,8 @@ export const firebaseConfig = {
     ContactPage,
     HomePage,
     TabsPage,
-    MiAltotongaPage, 
-    BienvenidosPage,
+     
+    
     ImagenesFirebasePage,
   ],
   providers: [

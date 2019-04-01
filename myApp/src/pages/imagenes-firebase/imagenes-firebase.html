@@ -1,14 +1,14 @@
 
 <ion-header>
 
-  <ion-navbar>
+  <ion-navbar color="danger">
     <ion-title>Lista de Imágenes</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
-<ion-content padding>
+<ion-content padding class="bd-color">
   <button class="bd-color" ion-item (click)="mostrarFormulario()">
     Formulario
   </button>
@@ -27,4 +27,5 @@
   
     </ion-card>
 
+    <button ion-button block color="danger" (click)="alertaBasica()">¡Importante!</button>
 </ion-content>

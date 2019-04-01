@@ -52,7 +52,7 @@ export class ImagenFirebaseProvider {
     
   }
 
-  public crear_post( nombre:String, apellidos:String, url:String, nombreArchivo:String){
+  private crear_post( nombre:String, apellidos:String, url:String, nombreArchivo:String){
     let post: ArchivoSubir = {
       img: url,
       nombre: nombre,

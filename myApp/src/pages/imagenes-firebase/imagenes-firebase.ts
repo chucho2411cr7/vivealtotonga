@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
 
 
 import { ImagenFirebaseProvider } from '../../providers/imagen-firebase/imagen-firebase';
@@ -16,7 +16,7 @@ export class ImagenesFirebasePage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams,
     public imagenFirebaseProvider: ImagenFirebaseProvider,
-    private afDB: AngularFireDatabase,) {
+    private afDB: AngularFireDatabase, public alerta:AlertController) {
 
       this.obtenerImagenes();
       
@@ -32,6 +32,15 @@ export class ImagenesFirebasePage {
     } catch (error) {
       console.log('Error al obtener los datos');
     }
+  }
+
+  alertaBasica(){
+    let miAlerta = this.alerta.create({
+      title:'Información de esta sección',
+      message:'Es muy importante tener conexion Wifi o datos 3G para poder mostrar, tomar o seleccionar una imagen',
+      buttons: ['Entendido']
+    });
+    miAlerta.present();
   }
 
 }

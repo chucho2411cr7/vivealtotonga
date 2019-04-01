@@ -24,7 +24,7 @@ export class HomePage {
   }
 
   inicio(){
-    this.navCtrl.push(HomePage);
+    this.navCtrl.setRoot(HomePage);
 
 }
 
